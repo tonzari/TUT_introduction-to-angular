@@ -1,1 +1,39 @@
-Fairhouse App is running
+<main>
+    <header>
+        <img src="../assets/logo.svg" alt="" srcset="">
+    </header>
+    <section>
+        <app-housing-list [locationList]="housingLocationList" (selectedLocationEvent)="updateSelectedLocation($event)"></app-housing-list>
+    </section>
+    <article>
+        <ng-container *ngIf="selectedLocation">
+
+            <!-- See the [src] below?  -->
+            <img src="{{selectedLocation?.photo}}"> 
+            
+            <!-- 
+                 Pay special attention to the square brackets! [ ] What are those for??
+                
+                 A normal img element would have a src attribute without the square brackets. 
+                 Something like this, <img src="images/myImage.jpg">, which includes a literal URL defining the location of the image.
+
+                 In this example above, remove the square brackets and run your code. 
+                 What happens? (Spoiler alert: the image won't work!)
+                 What URL is the browser trying to request to retrieve the image? 
+
+                 In Angular, you can surround src with square brackets like this, [src], to signal that you want to dynamically set the src URL
+                 with data from the .ts file. We are referencing the property 'selectedLocation' of type HousingLocation, which contains a 
+                 property 'photo' of type string that holds the actual URL of the photo we want to display.
+            -->
+
+            <p>{{selectedLocation?.name}}</p>
+            <p>{{selectedLocation?.availableUnits}}</p>
+            <p>{{selectedLocation?.city}}, {{selectedLocation?.city}}</p>
+            <p>{{selectedLocation?.wifi ? "Has WIFI" : "Does not have WIFI"}}</p>
+            <p>{{selectedLocation?.laundry ? "Has laundry" : "Does not have laundry"}}</p>
+        </ng-container>
+        <ng-container *ngIf="!selectedLocation">
+            <p>Currently no house is selected.</p>
+        </ng-container>
+    </article>
+</main>
