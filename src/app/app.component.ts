@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { HousingLocation } from './housing-location';
+<<<<<<< HEAD
 
 import { HousingListComponent } from './housing-list/housing-list.component';
+=======
+>>>>>>> main
 
 @Component({
   selector: 'app-root',
@@ -11,8 +14,11 @@ import { HousingListComponent } from './housing-list/housing-list.component';
 export class AppComponent {
   title = 'fairhouse';
 
+<<<<<<< HEAD
   selectedLocation: HousingLocation | undefined;
 
+=======
+>>>>>>> main
   housingLocationList: HousingLocation[] = [
     {
       name: "Acme Fresh Start Housing",
@@ -41,10 +47,19 @@ export class AppComponent {
       wifi: false,
       laundry: false,
     }
+<<<<<<< HEAD
   
   ];
 
   updateSelectedLocation(selectedLocation: HousingLocation) {
     this.selectedLocation = selectedLocation;
+=======
+  ];
+
+  selectedLocation: HousingLocation | undefined;// = this.housingLocationList[0];
+
+  updateSelectedLocation(location: HousingLocation) {
+    this.selectedLocation = location;
+>>>>>>> main
   }
 }
